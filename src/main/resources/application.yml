@@ -1,0 +1,37 @@
+
+server:
+  port: 8091
+
+spring:
+
+  # JSP
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  # JSP ?? ? ? ??? ?
+  devtools:
+    restart:
+      enabled: true
+
+  # DB
+  datasource:
+    url: jdbc:mysql://localhost:3306/ant
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # page-helper
+  main:
+    allow-circular-references: true
+
+# page-helper
+page-helper:
+  helperDialect: mysql
+  reasonable: true
+
+# mybatis ???? ??? -> ?? ??? ??
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
