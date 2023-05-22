@@ -35,6 +35,9 @@ dependencies {
 
     // JSTL
     implementation 'javax.servlet:jstl'
+
+    // 스프링시큐리티 태그 라이브러리
+    implementation 'org.springframework.security:spring-security-taglibs'
 }
 
 tasks.named('test') {

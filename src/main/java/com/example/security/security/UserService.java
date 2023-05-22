@@ -25,16 +25,17 @@ public class UserService implements UserDetailsService {
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         userVo.setUserPw(passwordEncoder.encode(userVo.getPassword()));
-        userVo.setUserAuth("USER");
+//        userVo.setUserAuth("USER");
+        userVo.setUserAuth("ROLE_ADMIN");
         userVo.setAppendDate(localTime);
         userVo.setUpdateDate(localTime);
         userMapper.saveUser(userVo);
+
     }
 
     @Override
     public UserVo loadUserByUsername(String userId) throws UsernameNotFoundException {
 
-        //여기서 받은 유저 패스워드와 비교하여 로그인 인증
         UserVo userVo = userMapper.getUserAccount(userId);
         if (userVo == null){
             throw new UsernameNotFoundException("User not authorized.");

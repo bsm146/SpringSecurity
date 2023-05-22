@@ -10,6 +10,7 @@ import java.util.Collections;
 
 @Data
 public class UserVo implements UserDetails {
+
     private int userNo;
     private String userId;
     private String userPw;
@@ -20,6 +21,17 @@ public class UserVo implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+
+
+//        List<GrantedAuthority> auth = new ArrayList<GrantedAuthority>();
+//
+//        if (this.userAuth.equals("ADMIN")) {
+//            auth.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+//        } else {
+//            auth.add(new SimpleGrantedAuthority("ROLE_USER"));
+//        }
+//
+//        return auth;
         return Collections.singletonList(new SimpleGrantedAuthority(this.userAuth));
     }
 

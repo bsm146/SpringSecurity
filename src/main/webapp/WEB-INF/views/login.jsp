@@ -23,7 +23,7 @@
     <h1>로그인</h1>
     <form action="/login_proc" method="post">
         <div class="form-group">
-            <input type="text" name="username" class="form-control" placeholder="아이디 입력해주세요">
+            <input type="text" name="username" class="form-control" placeholder="아이디 입력해주세요" autofocus>
         </div>
         <div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="비밀번호 입력해주세요">
@@ -33,6 +33,7 @@
     </form>
     <br/>
 </div>
+
 
 
 <script>

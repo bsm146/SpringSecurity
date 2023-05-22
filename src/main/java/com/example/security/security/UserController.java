@@ -13,7 +13,6 @@ public class UserController {
 
     private final UserService userService;
 
-
     @GetMapping
     public String root() {
         return "redirect:/login";
@@ -21,7 +20,6 @@ public class UserController {
 
     @GetMapping("/login")
     public String login(){
-        System.out.println("login()");
         return "login";
     }
 
@@ -38,16 +36,24 @@ public class UserController {
     @PostMapping("/signUp")
     public String signUp(UserVo userVo) {
 
-        System.out.println("signUp()");
         userService.joinUser(userVo);
         return "redirect:/login";
     }
 
-
     @GetMapping("/user_access")
     public String userAccess(Model model, Authentication authentication) {
-        UserVo userVo = (UserVo) authentication.getPrincipal();  //userDetail 객체를 가져옴
-        model.addAttribute("info", userVo.getUserId() +"의 "+ userVo.getUserName()+ "님");      //유저 아이디
+        UserVo userVo = (UserVo) authentication.getPrincipal();
+        model.addAttribute("info", userVo.getUserId() +"의 "+ userVo.getUserName()+ "님");
         return "user_access";
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+    }
+
+    @GetMapping("/test2")
+    public String test2() {
+        return "test2";
     }
 }
